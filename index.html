@@ -27,17 +27,17 @@
     <!-- Start Navbar -->
     <nav class="bg-transparent" id="nav">
       <div
-        class="max-w-screen-xl flex flex-wrap items-center justify-between border-b border-gray-900 mx-auto p-4"
+        class="max-w-screen-xl flex flex-wrap items-center justify-between border-b border-gray-700 mx-auto p-4"
       >
-        <a href="#" class="flex items-center">
+        <a href="#home" class="flex items-center">
           <span
-            class="text-2xl font-semibold whitespace-nowrap text-[#FD6F00] dark:text-[#FD6F00] italic"
+            class="text-2xl font-semibold whitespace-nowrap dark:text-[#FD6F00] italic"
             >My Portfolio</span
           >
         </a>
 
         <div
-          class="nav-links duration-900 md:static absolute md:min-h-fit min-h-[20vh] left-0 top-[-100%] w-full md:block md:w-auto"
+          class="nav-links duration-900 md:static absolute md:min-h-auto min-h-full left-0 top-[-100%] w-full md:block md:w-auto"
         >
           <ul
             class="font-medium flex md:flex-row flex-col bg-gray-700 md:bg-gray-900 p-4 md:p-0 mt-4 md:space-x-8 md:mt-0 md:gap-2 gap-2"
@@ -45,7 +45,7 @@
             <li>
               <a
                 href="#home"
-                class="block py-2 px-3 text-white hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
+                class="block py-2 px-3 text-gray-900 hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
               >
                 Home
               </a>
@@ -53,14 +53,14 @@
             <li>
               <a
                 href="#about"
-                class="block py-2 px-3 text-white hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
+                class="block py-2 px-3 text-gray-900 hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
                 >About</a
               >
             </li>
             <li>
               <a
                 href="#skills"
-                class="block py-2 px-3 text-white hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
+                class="block py-2 px-3 text-gray-900 hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
                 >Skills</a
               >
             </li>
@@ -68,14 +68,14 @@
               <a
                 href="assets/pdf/Resume.pdf"
                 target="_blank"
-                class="block py-2 px-3 text-white hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
+                class="block py-2 px-3 hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
                 >Resume</a
               >
             </li>
             <li>
               <a
                 href="#contact"
-                class="block py-2 px-3 text-white hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
+                class="block py-2 px-3 text-gray-900 hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
                 >Contact</a
               >
             </li>
@@ -89,6 +89,7 @@
         ></ion-icon>
       </div>
     </nav>
+
     <!-- header section for home starts here -->
     <section
       id="home"
@@ -121,10 +122,7 @@
               </button>
             </a>
 
-            <a
-              href="https://github.com/Jangid-sunsa"
-              target="_blank"
-            >
+            <a href="https://github.com/Jangid-sunsa" target="_blank">
               <button type="button">
                 <i
                   class="text-3xl sm:text-4xl text-white rounded-full m-2 hover:text-[#FD6F00] fa-brands fa-github cursor-pointer"
@@ -211,7 +209,7 @@
             knack for creating attractive user interfaces. skilled experience in
             Html, Css, Bootstrap, Tailwind, JavaScript, Php
           </p>
-          <a href="#nav">
+          <a href="https://github.com/Jangid-sunsa" target="_blank">
             <button
               type="submit"
               class="text-sm sm:text-base text-white px-6 sm:px-8 py-2 my-3 bg-[#FD6F00] rounded-full cursor-pointer greetName"
@@ -345,7 +343,7 @@
         I'm always open to discussing new opportunities, interesting projects,
         or just having a chat about technology and development.
       </p>
-      <form class="max-w-sm mx-auto greetName m-4 px-4">
+      <form id="cForm" class="max-w-sm mx-auto greetName m-4 px-4">
         <div class="mb-5">
           <input
             type="text"
@@ -369,7 +367,7 @@
         <div class="mb-5">
           <input
             type="tel"
-            id="mobile"
+            id="num"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full px-2 py-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
             placeholder="Mobile"
             required
@@ -378,7 +376,7 @@
 
         <div class="mb-5">
           <textarea
-            id="message"
+            id="mssg"
             rows="4"
             class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
             placeholder="Write your thoughts here..."
@@ -387,6 +385,8 @@
 
         <button
           type="submit"
+          id="clickbtn"
+          onclick="saveData(event)"
           class="text-white bg-[#FD6F00] focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-[#FD6F00] cursor-pointer"
         >
           Submit
@@ -409,13 +409,7 @@
         </a>
       </div>
     </footer>
+    <p id="getdata" class="text-center text-2xl text-white"></p>
     <script src="assets/script.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
