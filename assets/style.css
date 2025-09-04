@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Borel&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playwrite+HU:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sevillana&family=Unbounded:wght@200..900&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+.greetName {
+  font-family: "unbounded", cursive;
+}
+
+#home {
+  width: 100%;
+  scroll-margin-block-start: 110px;
+  scroll-margin-block-end: 110px;
+}
+
+#about {
+  width: 100%;
+  scroll-margin-block-start: 110px;
+  scroll-margin-block-end: 110px;
+}
+
+#skills {
+  width: 100%;
+  scroll-margin-block-start: 110px;
+  scroll-margin-block-end: 110px;
+}
+
+#contact {
+  width: 100%;
+  scroll-margin-block-start: 110px;
+  scroll-margin-block-end: 110px;
+}
