@@ -6,9 +6,9 @@ function onToggleMenu(e) {
 }
 
 // Save data into Localstorage
-let uname = document.getElementById("username");
-let Email = document.getElementById("useremail");
-let Message = document.getElementById("usermssg");
+let uname = document.getElementById("contact-name");
+let Email = document.getElementById("contact-email");
+let Message = document.getElementById("contact-mssg");
 let button = document.getElementById("clickbtn");
 
 button.addEventListener("click", () => {
@@ -22,63 +22,128 @@ button.addEventListener("click", () => {
   document.getElementById("cForm").reset();
 });
 
-// Save data into localstorage of Array object
-// function saveData(event) {
-//   event.preventDefault();
+// *********************************************************************************************** This section for tabluler show data *******************************************************************************************************************
+// let uname = document.getElementById("contact-name");
+// let Email = document.getElementById("contact-email");
+// let Message = document.getElementById("contact-mssg");
+// let button = document.getElementById("clickbtn");
 
-//   const formData = {
-//     uname: document.getElementById("name").value,
-//     email: document.getElementById("email").value,
-//     message: document.getElementById("mssg").value,
-//   };
+// button.addEventListener("click", () => {
+//   const value = uname.value;
+//   const emailValue = Email.value;
+//   const mssgValue = Message.value;
 
-//   const saveData = JSON.parse(localStorage.getItem("saveTols")) || [];
-//   saveData.push(formData);
-//   localStorage.setItem("saveTols", JSON.stringify(saveData));
+//   let data = JSON.parse(localStorage.getItem("formData")) || [];
 
+//   data.push({ name: value, email: emailValue, message: mssgValue });
+//   localStorage.setItem("formData", JSON.stringify(data));
 //   document.getElementById("cForm").reset();
-// }
 
+//   showData();
+// });
+
+// function showData() {
+//   let tableBody = document.querySelector("tbody");
+//   tableBody.innerHTML = "";
+
+//   // Retrieve stored form data from localStorage
+//   let data = JSON.parse(localStorage.getItem("formData")) || [];
+
+//   if (data.length > 0) {
+//     data.forEach((entry, index) => {
+//       let newRow = document.createElement("tr");
+
+//       newRow.innerHTML = `<tr>
+//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
+//           index + 1
+//         }</td>
+//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
+//           entry.name
+//         }</td>
+//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
+//           entry.email
+//         }</td>
+//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
+//           entry.message
+//         }</td>
+//       </tr>`;
+
+//       tableBody.appendChild(newRow);
+//     });
+//   } else {
+//     console.log("No data found in localStorage.");
+//   }
+// } window.onload = showData;
+
+// *********************************************************************************************** This section for tabluler show data *******************************************************************************************************************
 
 // function for form validation Using rEgEx
-function validateForm() {
-  const uname = document.getElementById("username").value.trim();
-  const email = document.getElementById("useremail").value.trim();
-  const message = document.getElementById("usermssg").value.trim();
 
-  // javascript validation for form
-  const unameRegex = /^[A-Za-z\s]+$/;
-  const uemailRegex = /^[a-z0-9.]+/;
-  const umssgRegex = /^[A-Za-z0-9\s.,!?-]{10,500}$/;
+let nameErr = document.getElementById("name-error");
+let emailErr = document.getElementById("email-error");
+let msgErr = document.getElementById("mssg-error");
+let submitErr = document.getElementById("submit-error");
 
-  if (!unameRegex.test(uname)) {
-    alert("Invalid Username...");
-    return false;
-  }
-
-  if (!uemailRegex.test(email)) {
-    alert("Invalid Email format.");
-    return false;
-  }
-
-  if (!umssgRegex.test(message)) {
-    alert("Message must be 10–500 characters and contain only letters...");
-    return false;
-  }
-
-  alert("Form submitted successfully!");
-  return true;
+function resetErr() {
+  document.getElementById("name-error").textContent = "";
+  document.getElementById("email-error").textContent = "";
+  document.getElementById("mssg-error").textContent = "";
+  document.getElementById("submit-error").textContent = "";
 }
 
-// function validateForm() {
-//   let uname = document.forms["cForm"]["username"].value;
-//   let uemail = document.forms["cForm"]["useremail"].value;
-//   let umssg = document.forms["cForm"]["usermssg"].value;
+function validateName() {
+  let name = document.getElementById("contact-name").value;
 
-//   //
-//   if (uname == "" || uemail == "" || umssg == "") {
-//     alert("Fill all blanks");
-//   } else {
-//     alert("Form submitted successfully");
-//   }
-// }
+  if (name.length == 0) {
+    nameErr.innerHTML = "Name is required";
+    return false;
+  } else if (!name.match(/^[A-Za-z\s]+/)) {
+    nameErr.innerHTML = "Enter valid name";
+    return false;
+  } else {
+    nameErr.innerHTML =
+      '<i class="fa-solid fa-circle-check text-lg text-green-800 absolute right-2 top-4.5"></i>';
+    return true;
+  }
+}
+
+function validateEmail() {
+  let email = document.getElementById("contact-email").value;
+
+  if (email.length == 0) {
+    emailErr.innerHTML = "Email is required";
+    return false;
+  } else if (!email.match(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)) {
+    emailErr.innerHTML = "Invalid email";
+    return false;
+  } else {
+    emailErr.innerHTML =
+      '<i class="fa-solid fa-circle-check text-lg text-green-800 absolute right-2 top-4.5"></i>';
+    return true;
+  }
+}
+
+function validateMssg() {
+  let message = document.getElementById("contact-mssg").value;
+  let required = 50;
+  let left = required - message.length;
+
+  if (left > 0) {
+    msgErr.innerHTML = left + " More characters required";
+    return false;
+  } else {
+    msgErr.innerHTML =
+      '<i class="fa-solid fa-circle-check text-lg text-green-800 absolute right-2 top-4.5"></i>';
+  }
+}
+
+function validateForm() {
+  if (!validateName() && !validateEmail() && !validateMssg()) {
+    alert("First fill the form");
+    return false;
+  } else {
+    alert("Form submited successfully");
+    resetErr();
+    return true;
+  }
+}
