@@ -67,6 +67,13 @@
             </li>
             <li>
               <a
+                href="assets/detailed.html"
+                class="block py-2 px-3 text-gray-900 hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
+                >Enquiry</a
+              >
+            </li>
+            <li>
+              <a
                 href="#contact"
                 class="block py-2 px-3 text-gray-900 hover:bg-[#FD6F00] rounded-sm md:hover:bg-transparent md:hover:text-[#FD6F00] md:p-0 dark:text-white md:dark:hover:text-[#FD6F00]"
                 >Contact</a
@@ -347,44 +354,45 @@
             </div>
           </div>
           <div class="w-full max-w-4xl">
-            <form
-              id="cForm"
-              class="mx-auto greetName p-6"
-            >
-              <div class="mb-5">
+            <form id="cForm" class="mx-auto greetName p-6">
+              <div class="mb-5 relative">
                 <input
                   type="text"
-                  id="username"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full px-2 py-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Name"
+                  id="contact-name"
+                  onkeyup="validateName()"
                 />
-                <!-- <p id="Uerror" class="text-sm text-red-800">Enter a valid user</p> -->
+
+                <p id="name-error" class="text-xs pt-1 text-red-500"></p>
               </div>
 
-              <div class="mb-5">
+              <div class="mb-5 relative">
                 <input
                   type="email"
-                  id="useremail"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full px-2 py-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Email"
+                  id="contact-email"
+                  onkeyup="validateEmail()"
                 />
-                <!-- <p class="text-sm text-red-800">Enter a valid email</p> -->
+                <p id="email-error" class="text-xs pt-1 text-red-500"></p>
               </div>
 
-              <div class="mb-5">
+              <div class="mb-5 relative">
                 <textarea
-                  id="usermssg"
                   rows="4"
                   class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Write your thoughts here..."
+                  id="contact-mssg"
+                  onkeyup="validateMssg()"
                 ></textarea>
-                <!-- <p class="text-sm text-red-800">Fill the blacnks</p> -->
+                <p id="mssg-error" class="text-xs pt-1 text-red-500"></p>
               </div>
 
               <button
                 type="submit"
                 id="clickbtn"
-                onclick="return validateForm()"
+                onclick="validateForm()"
                 class="text-white bg-[#FD6F00] focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-[#FD6F00] cursor-pointer"
               >
                 Submit
@@ -402,7 +410,7 @@
           &#169; Copyright CodewithPeps
         </p>
         <p class="greetName text-center text-white text-sm md:text-lg">
-          &nbsp; Since at 2025
+          &nbsp; since in 2025
         </p>
       </div>
     </footer>
