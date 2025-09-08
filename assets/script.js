@@ -11,71 +11,19 @@ let Email = document.getElementById("contact-email");
 let Message = document.getElementById("contact-mssg");
 let button = document.getElementById("clickbtn");
 
-button.addEventListener("click", () => {
-  const value = uname.value;
-  localStorage.setItem("Name", value);
-  const emailValue = Email.value;
-  localStorage.setItem("Email", emailValue);
-  const mssgValue = Message.value;
-  localStorage.setItem("Message", mssgValue);
+const form = document.getElementById("cForm");
 
-  document.getElementById("cForm").reset();
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (validateForm()) {
+    localStorage.setItem("Name", uname.value);
+    localStorage.setItem("Email", Email.value);
+    localStorage.setItem("Message", Message.value);
+    alert("Form submitted successfully!");
+    form.reset();
+  }
 });
-
-// *********************************************************************************************** This section for tabluler show data *******************************************************************************************************************
-// let uname = document.getElementById("contact-name");
-// let Email = document.getElementById("contact-email");
-// let Message = document.getElementById("contact-mssg");
-// let button = document.getElementById("clickbtn");
-
-// button.addEventListener("click", () => {
-//   const value = uname.value;
-//   const emailValue = Email.value;
-//   const mssgValue = Message.value;
-
-//   let data = JSON.parse(localStorage.getItem("formData")) || [];
-
-//   data.push({ name: value, email: emailValue, message: mssgValue });
-//   localStorage.setItem("formData", JSON.stringify(data));
-//   document.getElementById("cForm").reset();
-
-//   showData();
-// });
-
-// function showData() {
-//   let tableBody = document.querySelector("tbody");
-//   tableBody.innerHTML = "";
-
-//   // Retrieve stored form data from localStorage
-//   let data = JSON.parse(localStorage.getItem("formData")) || [];
-
-//   if (data.length > 0) {
-//     data.forEach((entry, index) => {
-//       let newRow = document.createElement("tr");
-
-//       newRow.innerHTML = `<tr>
-//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
-//           index + 1
-//         }</td>
-//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
-//           entry.name
-//         }</td>
-//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
-//           entry.email
-//         }</td>
-//         <td class="greetName px-6 py-3 text-start text-sm text-black font-medium bg-white border border-black">${
-//           entry.message
-//         }</td>
-//       </tr>`;
-
-//       tableBody.appendChild(newRow);
-//     });
-//   } else {
-//     console.log("No data found in localStorage.");
-//   }
-// } window.onload = showData;
-
-// *********************************************************************************************** This section for tabluler show data *******************************************************************************************************************
 
 // function for form validation Using rEgEx
 
@@ -125,7 +73,7 @@ function validateEmail() {
 
 function validateMssg() {
   let message = document.getElementById("contact-mssg").value;
-  let required = 50;
+  let required = 10;
   let left = required - message.length;
 
   if (left > 0) {
@@ -139,11 +87,10 @@ function validateMssg() {
 
 function validateForm() {
   if (!validateName() && !validateEmail() && !validateMssg()) {
-    alert("First fill the form");
+    // alert("First fill the form");
     return false;
   } else {
-    alert("Form submited successfully");
-    resetErr();
+    // resetErr();
     return true;
   }
 }
