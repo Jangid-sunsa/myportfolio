@@ -1,1 +1,3 @@
-# My-Portfolio
+# My Portfolio 
+# This is my Javascript portfolio. I make my portfolio in Html, Tailwind & Javascript.
+# Create a store its contact form data in localstrage becasuse its static portfolio, So i store its data on localstorage. But when i store my data on server then i make to create my portfolio dynamically changeable for... 
